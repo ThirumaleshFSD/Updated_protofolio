@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thirumalesh | Full-Stack Developer & AI Learner</title>
+  <meta name="description"
+    content="Thirumalesh - Full-Stack Developer & AI Learner from Kurnool. Building innovative solutions, aspiring to create startups, and aiming for a future at Google.">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <a href="#home" class="logo">Thiru<span>malesh</span></a>
+
+    <nav class="navbar" id="navbar">
+      <a href="#home" class="active" style="--i:1">Home</a>
+      <a href="#about" style="--i:2">About</a>
+      <a href="#experience" style="--i:3">Experience</a>
+      <a href="#skills" style="--i:4">Skills</a>
+      <a href="#projects" style="--i:5">Projects</a>
+      <a href="#contact" style="--i:6">Contact</a>
+    </nav>
+
+    <div class="header-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="bx bx-moon" id="themeIcon"></i>
+      </button>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE MENU OVERLAY ===== -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <nav class="mobile-nav">
+      <a href="#home" class="mobile-nav-link">Home</a>
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#experience" class="mobile-nav-link">Experience</a>
+      <a href="#skills" class="mobile-nav-link">Skills</a>
+      <a href="#projects" class="mobile-nav-link">Projects</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+    </nav>
+  </div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="home" id="home">
+    <div class="particles" id="particles"></div>
+    <div class="home-content">
+      <div class="home-text">
+        <div class="greeting">👋 Hello, I'm</div>
+        <h1>Thirumalesh</h1>
+        <h3 class="typed-wrapper">
+          I'm a <span class="typed-text" id="typedText"></span>
+        </h3>
+        <p class="home-desc">
+          Building innovative solutions, aspiring to create startups, and aiming for a future at Google.
+        </p>
+        <div class="home-btns">
+          <a href="#projects" class="btn btn-primary">
+            <i class="bx bx-folder-open"></i> View Portfolio
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="bx bx-envelope"></i> Contact Me
+          </a>
+        </div>
+        <div class="home-socials">
+          <a href="https://linkedin.com/in/thirusampath" target="_blank" class="social-link" aria-label="LinkedIn">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://github.com/ThirumaleshFSd" target="_blank" class="social-link" aria-label="GitHub">
+            <i class="bx bxl-github"></i>
+          </a>
+          <a href="mailto:sirisampadha939184@gmail.com" class="social-link" aria-label="Email">
+            <i class="bx bx-envelope"></i>
+          </a>
+        </div>
+      </div>
+      <div class="home-img">
+        <div class="img-wrapper">
+          <div class="img-glow"></div>
+          <img src="profile.png" alt="Thirumalesh - Full Stack Developer" id="profileImg">
+          <div class="img-ring"></div>
+        </div>
+        <div class="floating-badge badge-1">
+          <i class="bx bxl-react"></i> React.js
+        </div>
+        <div class="floating-badge badge-2">
+          <i class="bx bxl-nodejs"></i> Node.js
+        </div>
+        <div class="floating-badge badge-3">
+          <i class="bx bx-code-alt"></i> MERN Stack
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get To Know</span>
+        <h2 class="section-title">About <span>Me</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-img-col">
+          <div class="about-img-frame">
+            <img src="profile.png" alt="Thirumalesh">
+            <div class="about-img-decoration"></div>
+          </div>
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-target="2">0</span>+
+              <span class="stat-label">Internships</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="5">0</span>+
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="10">0</span>+
+              <span class="stat-label">Technologies</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text-col">
+          <p class="about-intro">
+            I am <strong>Thirumalesh</strong> from <strong>Kurnool</strong>, currently pursuing <strong>B.Tech in
+              Electronics and Communication Engineering</strong>. I am deeply interested in learning new technologies,
+            building websites, and exploring AI.
+          </p>
+          <p class="about-body">
+            My career goals include starting a startup, innovating impactful solutions, and working at Google. I believe
+            in continuous learning and turning ideas into reality through code.
+          </p>
+          <div class="about-info">
+            <div class="info-item">
+              <i class="bx bx-user"></i>
+              <div>
+                <span class="info-label">Name</span>
+                <span class="info-value">Thirumalesh</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="bx bx-map"></i>
+              <div>
+                <span class="info-label">Location</span>
+                <span class="info-value">Kurnool, India</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="bx bx-graduation"></i>
+              <div>
+                <span class="info-label">Degree</span>
+                <span class="info-value">B.Tech ECE (2027)</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="bx bx-briefcase"></i>
+              <div>
+                <span class="info-label">Availability</span>
+                <span class="info-value">Open to Opportunities</span>
+              </div>
+            </div>
+          </div>
+          <div class="education-highlight">
+            <div class="edu-icon"><i class="bx bx-building-house"></i></div>
+            <div class="edu-content">
+              <h4>Madanapalle Institute of Technology and Sciences</h4>
+              <p>B.Tech in Electronics and Communication Engineering &middot; Graduating 2027</p>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-primary">
+            <i class="bx bx-paper-plane"></i> Let's Connect
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE SECTION ===== -->
+  <section class="experience section" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What I've Done</span>
+        <h2 class="section-title">Work <span>Experience</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-company-logo">
+                <i class="bx bxl-mongodb"></i>
+              </div>
+              <div class="timeline-meta">
+                <h3 class="timeline-role">MERN Stack Web Developer Intern</h3>
+                <span class="timeline-company">Code Alpha</span>
+                <div class="timeline-details">
+                  <span class="timeline-period"><i class="bx bx-calendar"></i> June – Aug 2025</span>
+                  <span class="timeline-mode"><i class="bx bx-globe"></i> Online</span>
+                </div>
+              </div>
+            </div>
+            <ul class="timeline-achievements">
+              <li><i class="bx bx-check-circle"></i> Built user-facing features using the MERN stack</li>
+              <li><i class="bx bx-check-circle"></i> Designed RESTful APIs and worked on responsive UI with React.js
+              </li>
+              <li><i class="bx bx-check-circle"></i> Managed databases with MongoDB, used Git for version control</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>React.js</span><span>Node.js</span><span>MongoDB</span><span>Express</span><span>Git</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-company-logo cisco">
+                <i class="bx bx-shield-alt-2"></i>
+              </div>
+              <div class="timeline-meta">
+                <h3 class="timeline-role">Cybersecurity Intern</h3>
+                <span class="timeline-company">Cisco Networking Academy</span>
+                <div class="timeline-details">
+                  <span class="timeline-period"><i class="bx bx-calendar"></i> June – Aug 2025</span>
+                  <span class="timeline-mode"><i class="bx bx-globe"></i> Online</span>
+                </div>
+              </div>
+            </div>
+            <ul class="timeline-achievements">
+              <li><i class="bx bx-check-circle"></i> Analyzed network traffic, identified threats, and performed
+                vulnerability assessments</li>
+              <li><i class="bx bx-check-circle"></i> Participated in incident response drills and policy development
+              </li>
+              <li><i class="bx bx-check-circle"></i> Hands-on experience with firewalls, IDS, and SIEM tools</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>Firewalls</span><span>IDS</span><span>SIEM</span><span>Network Security</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What I Know</span>
+        <h2 class="section-title">My <span>Skills</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-category">
+          <div class="skill-category-header">
+            <i class="bx bx-code"></i>
+            <h3>Programming</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>C</span><span>75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-width="75"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Python</span><span>80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-width="80"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Java</span><span>70%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-width="70"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-header">
+            <i class="bx bx-globe"></i>
+            <h3>Web Development</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info"><span>HTML / CSS</span><span>92%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-width="92"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>JavaScript</span><span>85%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-width="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>React.js</span><span>80%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-width="80"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Node.js / Express</span><span>78%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-width="78"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>MongoDB</span><span>75%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-width="75"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Postman / APIs</span><span>82%</span></div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-width="82"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-header">
+            <i class="bx bx-star"></i>
+            <h3>Other Skills</h3>
+          </div>
+          <div class="skill-tags-grid">
+            <div class="skill-tag"><i class="bx bx-shield-alt-2"></i> Cybersecurity</div>
+            <div class="skill-tag"><i class="bx bx-microchip"></i> IoT / Arduino</div>
+            <div class="skill-tag"><i class="bx bx-git-branch"></i> Git / GitHub</div>
+            <div class="skill-tag"><i class="bx bx-brain"></i> AI / ML Basics</div>
+            <div class="skill-tag"><i class="bx bx-chat"></i> English Communication</div>
+            <div class="skill-tag"><i class="bx bx-network-chart"></i> Networking</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES SECTION ===== -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What I Offer</span>
+        <h2 class="section-title">My <span>Services</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bx bx-code-block"></i>
+          </div>
+          <h3>Full-Stack Web Development</h3>
+          <p>End-to-end development including front-end (HTML, CSS, JS, React) and back-end (Node.js, Express). From
+            simple landing pages to complex web applications.</p>
+          <a href="#contact" class="service-link">Get Started <i class="bx bx-right-arrow-alt"></i></a>
+        </div>
+        <div class="service-card featured">
+          <div class="service-icon-wrap">
+            <i class="bx bx-server"></i>
+          </div>
+          <h3>API Development</h3>
+          <p>Design and develop robust RESTful APIs. Integration with databases, third-party services, and seamless
+            front-end connectivity using Postman for testing.</p>
+          <a href="#contact" class="service-link">Get Started <i class="bx bx-right-arrow-alt"></i></a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bx bx-shield-quarter"></i>
+          </div>
+          <h3>Cybersecurity Consulting</h3>
+          <p>Basic security assessments, vulnerability scanning, and best-practice recommendations to help keep your
+            systems secure.</p>
+          <a href="#contact" class="service-link">Get Started <i class="bx bx-right-arrow-alt"></i></a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bx bx-microchip"></i>
+          </div>
+          <h3>IoT Prototyping</h3>
+          <p>Arduino-based smart systems, LED control, sensor integration, and home automation prototypes bridging
+            hardware and software.</p>
+          <a href="#contact" class="service-link">Get Started <i class="bx bx-right-arrow-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What I've Built</span>
+        <h2 class="section-title">My <span>Projects</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="iot">IoT</button>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card" data-category="web">
+          <div class="project-img">
+            <div class="project-img-placeholder web-placeholder">
+              <i class="bx bx-globe"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="https://github.com/ThirumaleshFSd" target="_blank" class="project-link">
+                <i class="bx bxl-github"></i> View Code
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Portfolio Website</h3>
+            <p>Personal website showcasing skills, projects, and background with a clean, responsive UI. Built with
+              modern web technologies and animations.</p>
+            <div class="project-tech">
+              <span>React</span><span>CSS</span><span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="iot">
+          <div class="project-img">
+            <div class="project-img-placeholder iot-placeholder">
+              <i class="bx bx-microchip"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="https://github.com/ThirumaleshFSd" target="_blank" class="project-link">
+                <i class="bx bxl-github"></i> View Code
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>IoT-Based Home Automation & Prototyping</h3>
+            <p>Developed Arduino-based smart lighting and LED control systems, showcasing skills in hardware and circuit
+              design for smart home applications.</p>
+            <div class="project-tech">
+              <span>Arduino</span><span>C++</span><span>Electronics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="web">
+          <div class="project-img">
+            <div class="project-img-placeholder api-placeholder">
+              <i class="bx bx-server"></i>
+            </div>
+            <div class="project-overlay">
+              <a href="https://github.com/ThirumaleshFSd" target="_blank" class="project-link">
+                <i class="bx bxl-github"></i> View Code
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>MERN Stack Web Application</h3>
+            <p>A full-stack web application developed during the Code Alpha internship with user authentication, REST
+              API integration, and MongoDB backend.</p>
+            <div class="project-tech">
+              <span>MongoDB</span><span>Express</span><span>React</span><span>Node.js</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Contact <span>Me</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Let's Work Together</h3>
+          <p>Feel free to reach out for collaborations, opportunities, or just to say hi! I'm always open to discussing
+            new projects and ideas.</p>
+          <div class="contact-cards">
+            <a href="mailto:sirisampadha939184@gmail.com" class="contact-card">
+              <div class="contact-icon"><i class="bx bx-envelope"></i></div>
+              <div class="contact-card-info">
+                <span class="contact-card-label">Email</span>
+                <span class="contact-card-value">sirisampadha939184@gmail.com</span>
+              </div>
+              <i class="bx bx-right-arrow-alt contact-arrow"></i>
+            </a>
+            <a href="tel:+919182358936" class="contact-card">
+              <div class="contact-icon"><i class="bx bx-phone"></i></div>
+              <div class="contact-card-info">
+                <span class="contact-card-label">Phone</span>
+                <span class="contact-card-value">+91 9182358936</span>
+              </div>
+              <i class="bx bx-right-arrow-alt contact-arrow"></i>
+            </a>
+            <a href="https://linkedin.com/in/thirusampath" target="_blank" class="contact-card">
+              <div class="contact-icon linkedin"><i class="bx bxl-linkedin"></i></div>
+              <div class="contact-card-info">
+                <span class="contact-card-label">LinkedIn</span>
+                <span class="contact-card-value">linkedin.com/in/thirusampath</span>
+              </div>
+              <i class="bx bx-right-arrow-alt contact-arrow"></i>
+            </a>
+            <a href="https://github.com/ThirumaleshFSd" target="_blank" class="contact-card">
+              <div class="contact-icon github"><i class="bx bxl-github"></i></div>
+              <div class="contact-card-info">
+                <span class="contact-card-label">GitHub</span>
+                <span class="contact-card-value">github.com/ThirumaleshFSd</span>
+              </div>
+              <i class="bx bx-right-arrow-alt contact-arrow"></i>
+            </a>
+          </div>
+        </div>
+        <div class="contact-form-col">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <div class="input-wrapper">
+                <i class="bx bx-user"></i>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <div class="input-wrapper">
+                <i class="bx bx-envelope"></i>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <div class="input-wrapper">
+                <i class="bx bx-edit"></i>
+                <input type="text" id="subject" name="subject" placeholder="Project Discussion" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <div class="input-wrapper textarea-wrapper">
+                <i class="bx bx-message-square-detail"></i>
+                <textarea id="message" name="message" placeholder="Your message here..." rows="5" required></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+              <span id="btnText"><i class="bx bx-paper-plane"></i> Send Message</span>
+              <span id="btnLoading" style="display:none;"><i class="bx bx-loader-alt bx-spin"></i> Sending...</span>
+            </button>
+            <div class="form-success" id="formSuccess">
+              <i class="bx bx-check-circle"></i> Message sent successfully! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="#home" class="logo">Thiru<span>malesh</span></a>
+        <p>Full-Stack Developer & AI Learner<br>Building the future, one line at a time.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://linkedin.com/in/thirusampath" target="_blank"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://github.com/ThirumaleshFSd" target="_blank"><i class="bx bxl-github"></i></a>
+        <a href="mailto:sirisampadha939184@gmail.com"><i class="bx bx-envelope"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Thirumalesh. All rights reserved. Made with <span class="heart">❤️</span> & lots of ☕</p>
+    </div>
+  </footer>
+
+  <!-- Scroll to top button -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i class="bx bx-chevron-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
