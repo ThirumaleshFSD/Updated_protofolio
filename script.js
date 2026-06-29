@@ -402,4 +402,242 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // ========================
+  // RESUME MANAGER LOGIC
+  // ========================
+  const resumeModal = document.getElementById('resumeModal');
+  const resumeManagerToggle = document.getElementById('resumeManagerToggle');
+  const closeResumeModal = document.getElementById('closeResumeModal');
+  const heroResumeBtn = document.getElementById('heroResumeBtn');
+  const aboutResumeBtn = document.getElementById('aboutResumeBtn');
+  const viewResumeBtn = document.getElementById('viewResumeBtn');
+  const downloadResumeBtn = document.getElementById('downloadResumeBtn');
+  const deleteResumeBtn = document.getElementById('deleteResumeBtn');
+  const resumeDropZone = document.getElementById('resumeDropZone');
+  const resumeInput = document.getElementById('resumeInput');
+  const resumeStatusName = document.getElementById('resumeStatusName');
+  const adminActions = document.getElementById('adminActions');
+
+  // Load state on page start
+  updateResumeUI();
+
+  // Show / Close Resume Manager Modal
+  if (resumeManagerToggle) {
+    resumeManagerToggle.addEventListener('click', () => {
+      resumeModal.classList.add('active');
+    });
+  }
+
+  if (closeResumeModal) {
+    closeResumeModal.addEventListener('click', () => {
+      resumeModal.classList.remove('active');
+    });
+  }
+
+  window.addEventListener('click', (e) => {
+    if (e.target === resumeModal) {
+      resumeModal.classList.remove('active');
+    }
+  });
+
+  // Esc key closes resume modal too
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && resumeModal && resumeModal.classList.contains('active')) {
+      resumeModal.classList.remove('active');
+    }
+  });
+
+  // Action buttons
+  if (heroResumeBtn) {
+    heroResumeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      viewCurrentResume();
+    });
+  }
+
+  if (aboutResumeBtn) {
+    aboutResumeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      viewCurrentResume();
+    });
+  }
+
+  if (viewResumeBtn) {
+    viewResumeBtn.addEventListener('click', () => {
+      viewCurrentResume();
+    });
+  }
+
+  if (downloadResumeBtn) {
+    downloadResumeBtn.addEventListener('click', () => {
+      downloadCurrentResume();
+    });
+  }
+
+  if (deleteResumeBtn) {
+    deleteResumeBtn.addEventListener('click', () => {
+      if (confirm('Are you sure you want to delete your uploaded resume? This will revert back to the default resume.')) {
+        localStorage.removeItem('uploaded_resume');
+        localStorage.removeItem('uploaded_resume_name');
+        updateResumeUI();
+        alert('Uploaded resume deleted successfully!');
+      }
+    });
+  }
+
+  // Trigger file browse when clicking drop zone
+  if (resumeDropZone) {
+    resumeDropZone.addEventListener('click', () => {
+      resumeInput.click();
+    });
+
+    // Drag and drop event listeners
+    ['dragenter', 'dragover'].forEach(eventName => {
+      resumeDropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        resumeDropZone.classList.add('dragover');
+      }, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      resumeDropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        resumeDropZone.classList.remove('dragover');
+      }, false);
+    });
+
+    resumeDropZone.addEventListener('drop', (e) => {
+      const dt = e.dataTransfer;
+      const files = dt.files;
+      if (files && files.length > 0) {
+        handleResumeFile(files[0]);
+      }
+    });
+  }
+
+  if (resumeInput) {
+    resumeInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files.length > 0) {
+        handleResumeFile(e.target.files[0]);
+      }
+    });
+  }
+
+  // UI state manager
+  function updateResumeUI() {
+    const uploadedResume = localStorage.getItem('uploaded_resume');
+    const uploadedResumeName = localStorage.getItem('uploaded_resume_name');
+
+    if (uploadedResume && uploadedResumeName) {
+      if (resumeStatusName) resumeStatusName.textContent = uploadedResumeName;
+      if (adminActions) adminActions.style.display = 'flex';
+    } else {
+      if (resumeStatusName) resumeStatusName.textContent = 'Default Resume (resume.pdf)';
+      if (adminActions) adminActions.style.display = 'none';
+    }
+  }
+
+  // File Upload Processor
+  function handleResumeFile(file) {
+    if (!file) return;
+
+    // Check if PDF
+    if (file.type !== 'application/pdf' && !file.name.endsWith('.pdf')) {
+      alert('Only PDF files are accepted for the resume upload.');
+      return;
+    }
+
+    // Check file size (localStorage is limited to ~5MB, so keep it under 3.5MB to be safe)
+    if (file.size > 3.5 * 1024 * 1024) {
+      alert('The PDF file is too large. Please upload a compressed PDF under 3.5MB to ensure it can be saved in local browser storage.');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const base64Data = e.target.result;
+        localStorage.setItem('uploaded_resume', base64Data);
+        localStorage.setItem('uploaded_resume_name', file.name);
+        updateResumeUI();
+        alert('Resume uploaded and updated successfully!');
+      } catch (err) {
+        console.error(err);
+        alert('Failed to save the resume due to local browser storage limits. Please try a smaller PDF file.');
+      }
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // View PDF
+  function viewCurrentResume() {
+    const uploadedResume = localStorage.getItem('uploaded_resume');
+    const uploadedResumeName = localStorage.getItem('uploaded_resume_name');
+
+    if (uploadedResume && uploadedResumeName) {
+      openBase64PDF(uploadedResume, uploadedResumeName);
+    } else {
+      // Fallback: Open default resume.pdf in a new tab
+      window.open('resume.pdf', '_blank');
+    }
+  }
+
+  // Download PDF
+  function downloadCurrentResume() {
+    const uploadedResume = localStorage.getItem('uploaded_resume');
+    const uploadedResumeName = localStorage.getItem('uploaded_resume_name');
+
+    if (uploadedResume && uploadedResumeName) {
+      triggerDownload(uploadedResume, uploadedResumeName);
+    } else {
+      // Fallback: Download default resume.pdf
+      const a = document.createElement('a');
+      a.href = 'resume.pdf';
+      a.download = 'resume.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  }
+
+  // Base64 to Blob PDF Opener
+  function openBase64PDF(base64Data, filename) {
+    try {
+      const parts = base64Data.split(';base64,');
+      const contentType = parts[0].split(':')[1];
+      const raw = window.atob(parts[1]);
+      const rawLength = raw.length;
+      const uInt8Array = new Uint8Array(rawLength);
+      
+      for (let i = 0; i < rawLength; ++i) {
+        uInt8Array[i] = raw.charCodeAt(i);
+      }
+      
+      const blob = new Blob([uInt8Array], { type: contentType });
+      const blobUrl = URL.createObjectURL(blob);
+      
+      const newTab = window.open(blobUrl, '_blank');
+      if (!newTab) {
+        // Fallback to download if blocked by browser
+        triggerDownload(base64Data, filename);
+      }
+    } catch (err) {
+      console.error('Failed to open PDF blob:', err);
+      // Fallback
+      triggerDownload(base64Data, filename);
+    }
+  }
+
+  // Base64 Download Trigger
+  function triggerDownload(base64Data, filename) {
+    const a = document.createElement('a');
+    a.href = base64Data;
+    a.download = filename || 'resume.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
 });

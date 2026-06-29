@@ -31,6 +31,9 @@
     </nav>
 
     <div class="header-right">
+      <button class="resume-manager-btn" id="resumeManagerToggle" aria-label="Manage Resume" title="Resume Manager">
+        <i class="bx bx-file"></i>
+      </button>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <i class="bx bx-moon" id="themeIcon"></i>
       </button>
@@ -70,6 +73,9 @@
         <div class="home-btns">
           <a href="#projects" class="btn btn-primary">
             <i class="bx bx-folder-open"></i> View Portfolio
+          </a>
+          <a href="#" class="btn btn-outline" id="heroResumeBtn">
+            <i class="bx bx-file"></i> View Resume
           </a>
           <a href="#contact" class="btn btn-outline">
             <i class="bx bx-envelope"></i> Contact Me
@@ -126,7 +132,7 @@
           </div>
           <div class="about-stats">
             <div class="stat-item">
-              <span class="stat-number" data-target="2">0</span>+
+              <span class="stat-number" data-target="3">0</span>+
               <span class="stat-label">Internships</span>
             </div>
             <div class="stat-item">
@@ -186,9 +192,14 @@
               <p>B.Tech in Electronics and Communication Engineering &middot; Graduating 2027</p>
             </div>
           </div>
-          <a href="#contact" class="btn btn-primary">
-            <i class="bx bx-paper-plane"></i> Let's Connect
-          </a>
+          <div class="about-btns" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#contact" class="btn btn-primary">
+              <i class="bx bx-paper-plane"></i> Let's Connect
+            </a>
+            <a href="#" class="btn btn-outline" id="aboutResumeBtn">
+              <i class="bx bx-file"></i> View Resume
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -205,6 +216,35 @@
       <div class="timeline">
 
         <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-company-logo">
+                <i class="bx bxl-python"></i>
+              </div>
+              <div class="timeline-meta">
+                <h3 class="timeline-role">Python Developer Intern</h3>
+                <span class="timeline-company">
+                  <a href="https://validprofile.com/" target="_blank" rel="noopener noreferrer">Valid Profile <i class="bx bx-link-external"></i></a>
+                </span>
+                <div class="timeline-details">
+                  <span class="timeline-period"><i class="bx bx-calendar"></i> Recently Completed</span>
+                  <span class="timeline-mode"><i class="bx bx-globe"></i> Remote</span>
+                </div>
+              </div>
+            </div>
+            <ul class="timeline-achievements">
+              <li><i class="bx bx-check-circle"></i> Developed and deployed a school client website for <a href="https://amarajyothipublicschool.edu.in/" target="_blank" rel="noopener noreferrer">Amarajyothi Public School <i class="bx bx-link-external" style="font-size: 0.8rem;"></i></a></li>
+              <li><i class="bx bx-check-circle"></i> Built and optimized a full-stack <a href="https://expenseapp-web-dev.azurewebsites.net/" target="_blank" rel="noopener noreferrer">Expenses App <i class="bx bx-link-external" style="font-size: 0.8rem;"></i></a></li>
+              <li><i class="bx bx-check-circle"></i> Gained hands-on experience in Frontend React, Azure Authentications, Database Management, and Server-Side Rendering (SSR)</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>Python</span><span>React.js</span><span>Azure Auth</span><span>Database Management</span><span>SSR</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-left">
           <div class="timeline-dot"></div>
           <div class="timeline-card">
             <div class="timeline-header">
@@ -232,7 +272,7 @@
           </div>
         </div>
 
-        <div class="timeline-item" data-aos="fade-left">
+        <div class="timeline-item" data-aos="fade-right">
           <div class="timeline-dot"></div>
           <div class="timeline-card">
             <div class="timeline-header">
@@ -624,6 +664,45 @@
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
     <i class="bx bx-chevron-up"></i>
   </button>
+
+  <!-- ===== RESUME MANAGER MODAL ===== -->
+  <div class="modal" id="resumeModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Resume Manager</h2>
+        <button class="close-modal" id="closeResumeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="resume-status-box">
+          <div class="resume-icon-large">
+            <i class="bx bxs-file-pdf" id="statusPdfIcon"></i>
+          </div>
+          <div class="resume-status-text">
+            <span class="status-label">Current Resume:</span>
+            <span class="status-value" id="resumeStatusName">Default Resume (resume.pdf)</span>
+          </div>
+        </div>
+        <div class="resume-actions-grid">
+          <button class="btn btn-primary" id="viewResumeBtn">
+            <i class="bx bx-show"></i> View Resume
+          </button>
+          <button class="btn btn-outline" id="downloadResumeBtn">
+            <i class="bx bx-download"></i> Download
+          </button>
+        </div>
+        <div class="resume-upload-zone" id="resumeDropZone">
+          <i class="bx bx-cloud-upload"></i>
+          <p>Drag & drop your Resume PDF, or <span>browse files</span></p>
+          <input type="file" id="resumeInput" accept=".pdf" style="display: none;">
+        </div>
+        <div class="resume-admin-actions" id="adminActions" style="display: none;">
+          <button class="btn btn-danger" id="deleteResumeBtn" style="width: 100%; justify-content: center;">
+            <i class="bx bx-trash"></i> Delete Uploaded Resume
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
